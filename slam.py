@@ -358,19 +358,8 @@ class SLAMStructure:
     def save_data(self, dataset, update_fps, tracking_fps, mapping_fps):
         self.exp_root.mkdir(parents=True, exist_ok=True)
         
-        # Dump class data as pickles (expect image data)
-        with open(self.exp_root / "keyframes.pickle", 'wb') as handle:
-            pickle.dump(self.keyframes, handle, protocol=pickle.HIGHEST_PROTOCOL)
-        with open(self.exp_root / "poses.pickle", 'wb') as handle:
-            pickle.dump(self.poses, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
+    
         self.write_tum_poses(self.exp_root / "poses_pred.txt")
-
-        with open(self.exp_root / "points.pickle", 'wb') as handle:
-            pickle.dump(self.points, handle, protocol=pickle.HIGHEST_PROTOCOL)
-        with open(self.exp_root / "pose_point_map.pickle", 'wb') as handle:
-            pickle.dump(self.pose_point_map, handle, protocol=pickle.HIGHEST_PROTOCOL)
-        
 
         # Copy dataset
         self.exp_dataset_root = self.exp_root / 'dataset'
