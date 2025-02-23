@@ -405,8 +405,6 @@ for frame_idx in tqdm(frames_to_process):
 #       Disable to allow evaluating the pose predictions in these cases.
 # slam_structure.filter(min_view_num=2, reprojection_error_threshold=10)
 
-slam_structure.save_visualizations()
-
 # Save data and visualizations
 slam_structure.save_data(dataset, 
                          update_fps=update_counter/total_update_time,
